@@ -2,7 +2,7 @@ l, c = map(int, input().split()) # C개의 문자중 L개로 이루어진 암호
 alphabet = sorted(list(input().split()))
 
 def recursive(index, sub_sum):
-    if index >= l:
+    if len(sub_sum) >= l:
         a, b = 0, 0
         for i in sub_sum:
             if i in ['a', 'e', 'i', 'o', 'u']:
