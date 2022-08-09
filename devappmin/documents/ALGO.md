@@ -39,6 +39,36 @@ for i in range(1, n):
 print(max(dp))
 ```
 
+### Case 3
+
+> 관련 문제: 12015
+
+`Case 1`과 `Case 2`는 **O(n^2)**의 시간 복잡도를 가진다.
+
+이를 이분탐색으로 해결하면 **O(nlogn)**로 문제를 해결할 수 있다.
+
+```python
+memorization = [0]
+arr = [0] + nums
+
+for case in cases:
+    if memorization[-1] < case:
+        memorization.append(case)
+    else:
+        left = 0
+        right = len(memorization)
+
+        while left < right:
+            mid = (left + right) // 2
+
+            if memorization[mid] < case:
+                left = mid + 1
+            else:
+                right = mid
+        
+        memorization[right] = case
+```
+
 > 중가하는 가장 큰 수열의 길이를 구하는 것이지, 모든 수열의 경우를 출력하는 것이 아님을 유의하자.
 
 ## 트리의 지름 구하기
