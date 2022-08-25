@@ -1,13 +1,10 @@
-n = input()
-card_list = [0]*10
+from collections import Counter
+from math import ceil
 
-for i in n:
-    if i == '6' or i == '9':
-        if card_list[6] == card_list[9]:
-            card_list[6] += 1
-        else:
-            card_list[9] += 1
-    else:
-        card_list[int(i)] += 1
+n = list(map(int, input().replace('9', '6')))
+count = Counter(n)
 
-print(max(card_list))
+if 6 in count:
+    count[6] = ceil(count[6] / 2)
+
+print(max(count.values()))
