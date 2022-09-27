@@ -1,7 +1,7 @@
 a, b = input().split()
 answer = []
 
-for i in range(len(b) - len(a) + 1):
+for i in range(len(b) - len(a) + 1): # 조금씩 비교
     count = 0
     for j in range(len(a)):
         if a[j] != b[i + j]:
